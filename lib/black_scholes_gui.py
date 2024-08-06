@@ -7,7 +7,7 @@ import black_scholes_algorithm as bsa
 import black_scholes_graphs as bsg
 
 
-def double_line_editor():
+def float_line_editor():
     q = Qt.QLineEdit()
     q.setValidator(QtGui.QDoubleValidator())
     return q
@@ -16,11 +16,11 @@ def double_line_editor():
 class ScholesGUI(Qt.QWidget):
     def __init__(self):
         super().__init__()
-        self.S = double_line_editor()
-        self.K = double_line_editor()
-        self.T = double_line_editor()
-        self.r = double_line_editor()
-        self.vol = double_line_editor()
+        self.S = float_line_editor()
+        self.K = float_line_editor()
+        self.T = float_line_editor()
+        self.r = float_line_editor()
+        self.vol = float_line_editor()
 
         self.calculate_button = Qt.QPushButton('Calculate')
         self.graph_button = Qt.QPushButton('Open Graph')
