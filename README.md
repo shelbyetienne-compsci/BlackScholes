@@ -17,7 +17,9 @@ What is it?
     The risk-free rate and volatility of the underlying asset are known and constant.
     The returns of the underlying asset are normally distributed.
     The option is European and can only be exercised at expiration.
-  
+
+Learn More Here: https://www.investopedia.com/terms/b/blackscholes.asp
+
 Configuring:
 use 'pip install' to get dependencies in files
 
@@ -29,4 +31,4 @@ pip install matplotlib
 pip install pyqt6
 ```
 
-Run blackScholesGUI.py
+Run black_scholes_gui.py

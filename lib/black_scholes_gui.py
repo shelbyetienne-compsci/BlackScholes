@@ -3,8 +3,8 @@ import sys
 import numpy as np
 from PySide6 import QtCore, QtGui
 from PySide6 import QtWidgets as Qt
-import blackScholesOptionPricing as bsCalc
-import scholesGraphs as bsG
+import black_scholes_algorithm as bsCalc
+import black_scholes_graphs as bsG
 
 
 def double_line_editor():
