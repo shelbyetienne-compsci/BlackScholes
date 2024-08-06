@@ -1,6 +1,5 @@
-import sys
 import matplotlib
-from PySide6 import QtCore, QtWidgets
+from PySide6 import QtWidgets
 
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg, NavigationToolbar2QT as NavigationToolbar
 from matplotlib.figure import Figure
