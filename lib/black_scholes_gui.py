@@ -3,8 +3,8 @@ import sys
 import numpy as np
 from PySide6 import QtCore, QtGui
 from PySide6 import QtWidgets as Qt
-import black_scholes_algorithm as bsCalc
-import black_scholes_graphs as bsG
+import black_scholes_algorithm as bsa
+import black_scholes_graphs as bsg
 
 
 def double_line_editor():
@@ -63,7 +63,7 @@ class ScholesGUI(Qt.QWidget):
         volatilities = np.linspace(0.1, 1.0, 100)
         call_prices = []
         for vol in volatilities:
-            c = bsCalc.BlackScholesCalculator(
+            c = bsa.BlackScholesCalculator(
                 float(self.S.text()),
                 float(self.K.text()),
                 float(self.T.text()),
@@ -74,7 +74,7 @@ class ScholesGUI(Qt.QWidget):
 
         put_prices = []
         for vol in volatilities:
-            c = bsCalc.BlackScholesCalculator(
+            c = bsa.BlackScholesCalculator(
                 float(self.S.text()),
                 float(self.K.text()),
                 float(self.T.text()),
@@ -83,12 +83,12 @@ class ScholesGUI(Qt.QWidget):
             ).put_option_price()
             put_prices.append(c)
 
-        call_price_graph = bsG.BSGraphs('Volatility', volatilities, 'Call Option Price', call_prices)
-        put_price_graph = bsG.BSGraphs('Volatility', volatilities, 'Put Option Price', put_prices)
+        call_price_graph = bsg.BSGraphs('Volatility', volatilities, 'Call Option Price', call_prices)
+        put_price_graph = bsg.BSGraphs('Volatility', volatilities, 'Put Option Price', put_prices)
         return [call_price_graph, put_price_graph]
 
     def calculate(self):
-        bc = bsCalc.BlackScholesCalculator(
+        bc = bsa.BlackScholesCalculator(
             float(self.S.text()),
             float(self.K.text()),
             float(self.T.text()),
