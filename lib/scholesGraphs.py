@@ -8,7 +8,7 @@ matplotlib.use('Qt5Agg')
 
 
 class MplCanvas(FigureCanvasQTAgg):
-    def __init__(self, parent=None, width=10, height=6, dpi=100):
+    def __init__(self, parent=None, width=5, height=4, dpi=100):
         fig = Figure(figsize=(width, height), dpi=dpi)
         self.axes = fig.add_subplot(111)
         super(MplCanvas, self).__init__(fig)
@@ -23,7 +23,7 @@ class BSGraphs(QtWidgets.QMainWindow):
         self.y_label = y_label
         self.y_plots = y_plots
 
-        sc = MplCanvas(self, width=10, height=6, dpi=100)
+        sc = MplCanvas(self, width=5, height=4, dpi=100)
         sc.figure.supxlabel(self.x_label)
         sc.figure.supylabel(self.y_label)
 

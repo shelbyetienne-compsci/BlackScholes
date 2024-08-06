@@ -23,6 +23,7 @@ class ScholesGUI(Qt.QWidget):
         self.vol = double_line_editor()
 
         self.calculate_button = Qt.QPushButton('Calculate')
+        self.graph_button = Qt.QPushButton('Open Graph')
 
         self.call_option_text = Qt.QLabel('Call Option')
         self.put_option_text = Qt.QLabel('Put Option')
@@ -32,6 +33,7 @@ class ScholesGUI(Qt.QWidget):
         self.layout.addLayout(self.right_column())
 
         self.calculate_button.clicked.connect(self.calculate)
+        self.graph_button.clicked.connect(self.open_graphs)
 
     def left_column(self):
         lc = Qt.QFormLayout()
@@ -46,6 +48,7 @@ class ScholesGUI(Qt.QWidget):
     def right_column(self):
         rc = Qt.QVBoxLayout(self)
         rc.addLayout(self.display_calculations_row())
+        rc.addWidget(self.graph_button)
         rc.setAlignment(QtCore.Qt.AlignmentFlag.AlignTop)
         return rc
 
@@ -97,6 +100,7 @@ class ScholesGUI(Qt.QWidget):
         self.call_option_text.setText(f'Call Option {round(cp, 2)}')
         self.put_option_text.setText(f'Call Option {round(pp, 2)}')
 
+    def open_graphs(self):
         self.right_column().addWidget(self.option_v_volatility_graphs()[0])
         self.right_column().addWidget(self.option_v_volatility_graphs()[1])
 

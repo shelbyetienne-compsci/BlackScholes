@@ -2,6 +2,11 @@ import math
 from scipy.stats import norm
 
 
+# S - Underlying Price
+# K - Strike Price
+# T - Time to Expiration
+# r - Risk-Free Rate
+# vol - Volatility (σ)
 class BlackScholesCalculator:
     def __init__(self, s: float = 0, k: float = 0, t: float = 0, r: float = 0, vol: float = 0):
         self.s = s
@@ -18,9 +23,3 @@ class BlackScholesCalculator:
 
     def put_option_price(self):
         return self.k * math.exp(-self.r * self.t) * norm.cdf(-self.d2) - self.s * norm.cdf(-self.d1)
-
-# S = 45  # Underlying Price
-# K = 40  # Strike Price
-# T = 2   # Time to Expiration
-# r = 0.1 # Risk-Free Rate
-# vol = 0.1 # Volatility (σ)
