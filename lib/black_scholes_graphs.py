@@ -14,9 +14,9 @@ class MplCanvas(FigureCanvasQTAgg):
         super(MplCanvas, self).__init__(fig)
 
 
-class BSGraphs(QtWidgets.QMainWindow):
+class BlackScholesGraphs(QtWidgets.QMainWindow):
     def __init__(self, x_label, x_plots: list[float], y_label, y_plots: list[float],  *args, **kwargs):
-        super(BSGraphs, self).__init__(*args, **kwargs)
+        super(BlackScholesGraphs, self).__init__(*args, **kwargs)
 
         self.x_label = x_label
         self.x_plots = x_plots

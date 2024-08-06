@@ -13,7 +13,7 @@ def float_line_editor():
     return q
 
 
-class ScholesGUI(Qt.QWidget):
+class BlackScholesGUI(Qt.QWidget):
     def __init__(self):
         super().__init__()
         self.S = float_line_editor()
@@ -83,8 +83,8 @@ class ScholesGUI(Qt.QWidget):
             ).put_option_price()
             put_prices.append(c)
 
-        call_price_graph = bsg.BSGraphs('Volatility', volatilities, 'Call Option Price', call_prices)
-        put_price_graph = bsg.BSGraphs('Volatility', volatilities, 'Put Option Price', put_prices)
+        call_price_graph = bsg.BlackScholesGraphs('Volatility', volatilities, 'Call Option Price', call_prices)
+        put_price_graph = bsg.BlackScholesGraphs('Volatility', volatilities, 'Put Option Price', put_prices)
         return [call_price_graph, put_price_graph]
 
     def calculate(self):
@@ -108,7 +108,7 @@ class ScholesGUI(Qt.QWidget):
 if __name__ == "__main__":
     app = Qt.QApplication([])
 
-    widget = ScholesGUI()
+    widget = BlackScholesGUI()
     widget.resize(400, 400)
     widget.show()
 
